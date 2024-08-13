@@ -14,11 +14,12 @@ export class CounterComponent {
 
   counter:IcOUNTER[]=[]
   counterId = 0;
-@Output() addcounters =new EventEmitter()<IcOUNTER>
+  @Output() addcounters =new EventEmitter<IcOUNTER[]>()
   addcounter(){
     if (this.counter) {
       this.counter.push({ id: this.counterId++, count: 0 });
     }
+    this.addcounters.emit(this.counter)
   }
 
   increment(counter:IcOUNTER){

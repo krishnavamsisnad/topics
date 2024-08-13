@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { IcOUNTER } from '../counter/counterr.model';
 
 @Component({
   selector: 'app-header',
@@ -9,5 +10,6 @@ import { RouterModule } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  @Input() counter_data:IcOUNTER[]=[]
 
 }

@@ -1,6 +1,7 @@
 <div>
-  <app-header></app-header>
+  <app-header  [counter_data]="counters"></app-header>
+
 </div>
 <div>
-  <router-outlet></router-outlet>
+  <router-outlet  (addcounters)="onAddCounters($event)"></router-outlet>
 </div>

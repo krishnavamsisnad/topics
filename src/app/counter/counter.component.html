@@ -1,5 +1,12 @@
 <div class="container">
 <div>
-    <button click="addcounter">add</button>
+    <button (click)="addcounter()">add</button>
+    
+      <div *ngFor="let counter of counter" class="mt-2">
+        <b class="btn btn-primary">{{ counter.count }}</b> &nbsp;
+        <button class="btn btn-secondary me-2" (click)="increment(counter)">Increment</button>
+        <button class="btn btn-secondary me-2"   (click)="decrement(counter)">Decrement</button>
+        <!-- <button class="btn btn-danger" (click)="deleteCounter(counter)">Delete</button> -->
+      </div>
 </div>
 </div>

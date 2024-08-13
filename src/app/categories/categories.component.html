@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-12">
+    <app-add-categories (catageryadded)="oncatagery($event)"></app-add-categories>
+  </div>
+</div>
+
+    <div class="row">
+      <div class="d-flex col-12">
+        <app-single-categories *ngFor="let category of categories" [category]="category"></app-single-categories>
+      </div>
+    </div>
+  
+  

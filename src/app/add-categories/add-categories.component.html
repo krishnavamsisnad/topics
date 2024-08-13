@@ -1,0 +1,22 @@
+
+<div class="container">
+    <form [formGroup]="catageryform">
+        <label class="col-12">Tittle:
+            <input type="text" class="form-control" formControlName="title">
+        <small *ngIf="">
+
+        </small>
+        
+        </label>
+            
+            <label class="col-12">Description:
+
+                <input type="text" class="form-control" formControlName="description">
+            </label>
+            <small></small>
+                <br><br>
+            <div>
+                <button  class="btn btn-primary" (click)="onadd(catageryform)">add catagery</button>
+            </div>
+    </form>
+</div>

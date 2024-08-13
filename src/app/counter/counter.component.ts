@@ -20,9 +20,11 @@ export class CounterComponent {
       this.counter.push({ id: this.counterId++, count: 0 });
     }
   }
+
   increment(counter:IcOUNTER){
     counter.count++
   }
+  
   decrement(counter:IcOUNTER){
     if(counter.count>0){
       counter.count--

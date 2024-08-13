@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IcOUNTER } from './counterr.model';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import { CounterService } from '../counter.service';
 
 @Component({
   selector: 'app-counter',
@@ -10,27 +12,32 @@ import { CommonModule } from '@angular/common';
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.css'
 })
-export class CounterComponent {
+export class CounterComponent implements OnInit {
 
-  counter:IcOUNTER[]=[]
+  counter$!:Observable<IcOUNTER[]>;
   counterId = 0;
-  @Output() addcounters =new EventEmitter<IcOUNTER[]>()
+ constructor(public couter: CounterService){}
+
+ ngOnInit(){
+this.counter$=this.couter.couterdata$
+  }
   addcounter(){
-    if (this.counter) {
-      this.counter.push({ id: this.counterId++, count: 0 });
+      const counterdata=this.couter.couterdata$.value
+      const updatedata=[...counterdata,{ id: this.counterId++, count: 0 }]
+      this.couter.couterdata$.next(updatedata)
     }
-    this.addcounters.emit(this.counter)
-  }
-
-  increment(counter:IcOUNTER){
-    counter.count++
-  }
   
-  decrement(counter:IcOUNTER){
-    if(counter.count>0){
-      counter.count--
+    increment(counter:IcOUNTER){
+      counter.count++
     }
-
-  }
-
+    
+    decrement(counter:IcOUNTER){
+      if(counter.count>0){
+        counter.count--
+      }
+  
+    }
+  
 }
+
+

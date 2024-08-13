@@ -1,0 +1,47 @@
+<form [formGroup]="personfrodata" >
+  <div class="container">
+   <div >
+    <label>
+        NAME:
+        <input type="text" formControlName="name">
+        <div *ngIf="personfrodata.get('name')?.invalid && (personfrodata.get('name')?.dirty || personfrodata.get('name')?.touched)" class="text-danger">
+            <small *ngIf="personfrodata.get('name')?.errors?.['required']">name is required.</small>
+          </div>
+      </label>
+      <label>
+        AGE:
+        <input type="number" formControlName="age" >
+        <div *ngIf="personfrodata.get('age')?.invalid && (personfrodata.get('age')?.dirty || personfrodata.get('age')?.touched)" class="text-danger">
+            <small *ngIf="personfrodata.get('age')?.errors?.['required']">number is required.</small>
+          </div>
+      </label>
+   
+      <button type="button" (click)="addaddress()" class="btn btn-success">Add Address</button> 
+   </div>
+    
+      <div formArrayName="address" >
+        <div *ngFor="let addres of address.controls; let i = index" [formGroupName]="i" class="d-flex justify-content-between">
+          <label for="">Address Name:
+            <input type="text" class="form-control" formControlName="addressname" />
+            <div *ngIf="addres.get('addressname')?.invalid && (addres.get('addressname')?.dirty || addres.get('addressname')?.touched)" class="text-danger">
+                <small *ngIf="addres.get('addressname')?.errors?.['required']">Address is required.</small>
+              </div>
+          </label>
+          <label>
+            Pin Number:
+            <input type="text" class="form-control" formControlName="pinnumber" >
+            
+          </label>
+          <label for="">Phone Number:
+            <input type="text" class="form-control" formControlName="phonenumber">
+          </label>
+          <label for="">Street:
+            <input type="text" class="form-control" formControlName="street">
+          </label>
+          <span class="btn btn-danger" (click)="deletaddres(i)">delete</span>
+        </div>
+      </div>
+      <button (click)="formdata(personfrodata)" > save</button>
+  </div>
+  </form>
+  

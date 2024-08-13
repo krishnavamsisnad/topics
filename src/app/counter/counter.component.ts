@@ -37,6 +37,10 @@ this.counter$=this.couter.couterdata$
       }
   
     }
+    deleteCounter(counter:any){
+       const count_data = this.couter.couterdata$.value
+     this.couter.couterdata$.next(count_data.filter(c => c.id !== counter.id));
+    }
   
 }
 

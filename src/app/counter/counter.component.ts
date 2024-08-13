@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IcOUNTER } from './counterr.model';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ export class CounterComponent {
 
   counter:IcOUNTER[]=[]
   counterId = 0;
-  @Output() 
+@Output() addcounters =new EventEmitter()<IcOUNTER>
   addcounter(){
     if (this.counter) {
       this.counter.push({ id: this.counterId++, count: 0 });

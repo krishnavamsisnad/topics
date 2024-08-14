@@ -1,8 +1,9 @@
-import { Component, IterableDiffers, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Chart, registerables } from 'chart.js/auto';
 import { ChartserviesService } from '../chartservies.service';
-import { MonthlyTotal, Saledata, SalesReport, TotalsByMonth } from './mychart.model';
+import {  Saledata, SalesReport,  } from './mychart.model';
 import { Subscription } from 'rxjs';
+
 import { CommonModule } from '@angular/common';
 Chart.register(...registerables)
 

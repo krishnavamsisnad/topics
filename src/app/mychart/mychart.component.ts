@@ -3,6 +3,7 @@ import { Chart, registerables } from 'chart.js/auto';
 import { ChartserviesService } from '../chartservies.service';
 import {  Saledata, SalesReport,  } from './mychart.model';
 import { Subscription } from 'rxjs';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 Chart.register(...registerables)
@@ -10,7 +11,7 @@ Chart.register(...registerables)
 @Component({
   selector: 'app-mychart',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ReactiveFormsModule],
   providers: [ChartserviesService],
   templateUrl: './mychart.component.html',
   styleUrl: './mychart.component.css'

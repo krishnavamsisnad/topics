@@ -1,12 +1,65 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-lg-4">
         <h2>chart</h2>
         
         <canvas id="barchart"></canvas>
 
     </div>
-    <h2>Pie chart</h2>
+    
     <div class="col-lg-4">
+        <h2>Pie chart</h2>
         <canvas id="piechart"></canvas>
     </div>
+
+    <div class="col-lg-4">
+        <h2>Dougthnut chart</h2>
+        <canvas id="doughnutchart"></canvas>
+    </div>
+
+    <div class="col-lg-4">
+        <h2>Polar Area chart</h2>
+        <canvas id="polarAreachart"></canvas>
+    </div>
+    <div class="col-lg-4">
+        <h2>Line chart</h2>
+        <canvas id="linechart"></canvas>
+    </div>
+    <div class="col-lg-4">
+        <h2>scatter chart</h2>
+        <canvas id="scatterchart"></canvas>
+    </div> -->
+<div class="container">
+    <div class="row">
+       <h5>Scale data</h5>
+        <div class="col-6">
+            <table class="table">
+                <thead>
+                  <tr >
+                    <th scope="col">Scales</th>
+                    <th scope="col">Order</th>
+                    <th scope="col">Items</th>
+                    <th scope="col">Tax</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of labledata">
+                    <td >{{data.sales}}</td>
+                    <td>{{data.order}}</td>
+                    <td>Otto</td>
+                    <td>bbb</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+ 
+        <div class="col-6">
+            <h5>Scale data</h5>
+            <canvas id="salesBarChart" width="400" height="200"></canvas>
+
+    </div>
+    
+
+</div>
 </div>

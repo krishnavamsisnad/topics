@@ -31,7 +31,7 @@
 <div class="container">
     <div class="row">
        <h5>Scale data</h5>
-        <div class="col-6">
+        <div class="col-8">
             <table class="table">
                 <thead>
                   <tr >
@@ -39,25 +39,31 @@
                     <th scope="col">Order</th>
                     <th scope="col">Items</th>
                     <th scope="col">Tax</th>
+                    <th>Shipping</th>
 
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let data of labledata">
+                  <tr *ngFor="let data of saclestotal">
                     <td >{{data.sales}}</td>
                     <td>{{data.order}}</td>
-                    <td>Otto</td>
-                    <td>bbb</td>
+                    <td>{{data.items}}</td>
+                    <td>{{data.tax}}</td>
+                    <td>{{data.shipping}}</td>
                   </tr>
                   
                 </tbody>
               </table>
         </div>
  
-        <div class="col-6">
+        <div class="col-4">
+            <select class="form-select" formControlName="type" id="type">
+                <option disabled>Select</option>
+                <option *ngFor="let permission of salesdata" [value]="permission">{{permission.type}}</option>
+              </select>
             <h5>Scale data</h5>
             <canvas id="salesBarChart" width="400" height="200"></canvas>
-
+            <canvas id="salesbarchart" width="400" height="200"></canvas>
     </div>
     
 

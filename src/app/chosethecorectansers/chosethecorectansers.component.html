@@ -1,0 +1,51 @@
+<div class="container">
+    <form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label>1. Please add two numbers:</label><br>
+          <input formControlName="addition" type="number">
+        </div>
+      
+        <div>
+          <label>2. What is a component in Angular?</label><br>
+          <div *ngFor="let option of componentOptions">
+            <input type="radio" [value]="option" formControlName="componentDefinition"> {{ option }}
+          </div>
+        </div>
+      
+        <div>
+          <label>3. What is Angular primarily used for?</label><br>
+          <div *ngFor="let option of usageOptions">
+            <input type="radio" [value]="option" formControlName="angularUsage"> {{ option }}
+          </div>
+        </div>
+      
+        <div>
+          <label>4. What is the square root of 64?</label><br>
+          <input formControlName="squareRoot" type="number">
+        </div>
+      
+        <div>
+          <label>5. What is ngFor used for in Angular?</label><br>
+          <div *ngFor="let option of ngForOptions">
+            <input type="radio" [value]="option" formControlName="ngForUsage"> {{ option }}
+          </div>
+        </div>
+      
+        <div>
+          <label>6. Handling click events:</label><br>
+          <input formControlName="clickEvents" type="text">
+        </div>
+      
+        <div>
+          <label>7. In which year was Angular introduced?</label><br>
+          <input formControlName="introductionYear" type="number">
+        </div>
+      
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
+      <div *ngIf="submissionStatus">
+        <p class="text-danger">{{ submissionStatus }}</p>
+      </div>
+</div>
+  

@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { StringDecoder } from 'string_decoder';
 import { FormField } from './model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-froms',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './froms.component.html',
   styleUrl: './froms.component.css'
 })

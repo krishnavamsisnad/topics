@@ -1,0 +1,28 @@
+
+<div class="container mt-4">
+    <h2>Create Your Form</h2>
+  
+    <form [formGroup]="form">
+      <div formArrayName="fields">
+        <div *ngFor="let field of formFields; let i = index" [formGroupName]="i" class="form-group">
+          <label [for]="field.controlName">{{field.label}}</label>
+          
+          <ng-container [ngSwitch]="field.type">
+            <input *ngSwitchCase="'text'" class="form-control" [formControlName]="field.controlName" [id]="field.controlName">
+            
+            <select *ngSwitchCase="'select'" class="form-control" [formControlName]="field.controlName" [id]="field.controlName">
+              <option *ngFor="let option of field.options" [value]="option">{{option}}</option>
+            </select>
+            
+            <!-- Add more types like radio, checkbox, etc. -->
+          </ng-container>
+  
+          <button type="button" class="btn btn-danger mt-2" (click)="removeField(i)">Remove</button>
+        </div>
+      </div>
+  
+      <button type="button" class="btn btn-primary mt-2" (click)="addField()">Add Field</button>
+      <button type="button" class="btn btn-secondary mt-2" (click)="previewForm()">Preview</button>
+    </form>
+  </div>
+  

@@ -3,9 +3,10 @@ import { Chart, registerables } from 'chart.js/auto';
 import { ChartserviesService } from '../chartservies.service';
 import {  Saledata, SalesReport,  } from './mychart.model';
 import { Subscription } from 'rxjs';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 Chart.register(...registerables)
 
 @Component({
@@ -23,20 +24,32 @@ export class MychartComponent implements OnInit {
   labledata: any[] = []
   colordata: any[] = []
   salesdata: any[] = []
-  
-
+  salesform!:FormGroup
+  chartType!: any;
   apiSubscription!: Subscription;
-  constructor(public chart: ChartserviesService) { }
+  constructor(public chart: ChartserviesService,public fb:FormBuilder,private route: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.loadproductssales()
-    this.renderbarchart(this.labledata, this.amountdata, this.colordata)
-    this.renderpiechart(this.labledata, this.amountdata, this.colordata)
-    this.renderdoughnutchart(this.labledata, this.amountdata, this.colordata)
-    this.renderpolarareachart(this.labledata, this.amountdata, this.colordata)
-    this.renderlinechart(this.labledata, this.amountdata, this.colordata)
-    this.renderscatterchart(this.labledata, this.amountdata, this.colordata)
+    this.route.queryParamMap.subscribe(params => {
+      this.chartType = params.get('type');
+      this.renderChart();
+    });
+     }
+
+
+  intinialfrom(){
+    this.salesform=this.fb.group({
+      salesdata:[null,Validators.required]
+    })
+  }
+
+  renderChart() {
+    if (this.chartType === 'chart') {
+      this.loaddata()
+    } else if (this.chartType === 'sales') {
+      this.loadproductssales()
+    }
   }
 
   loaddata() {

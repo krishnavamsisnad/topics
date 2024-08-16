@@ -1,71 +1,76 @@
-<!-- <div class="row">
-    <div class="col-lg-4">
-        <h2>chart</h2>
-        
-        <canvas id="barchart"></canvas>
 
-    </div>
-    
-    <div class="col-lg-4">
-        <h2>Pie chart</h2>
-        <canvas id="piechart"></canvas>
-    </div>
-
-    <div class="col-lg-4">
-        <h2>Dougthnut chart</h2>
-        <canvas id="doughnutchart"></canvas>
-    </div>
-
-    <div class="col-lg-4">
-        <h2>Polar Area chart</h2>
-        <canvas id="polarAreachart"></canvas>
-    </div>
-    <div class="col-lg-4">
-        <h2>Line chart</h2>
-        <canvas id="linechart"></canvas>
-    </div>
-    <div class="col-lg-4">
-        <h2>scatter chart</h2>
-        <canvas id="scatterchart"></canvas>
-    </div> -->
-<div class="container">
-    <div class="row">
-       <h5>Scale data</h5>
-        <div class="col-8">
-            <table class="table">
-                <thead>
-                  <tr >
-                    <th scope="col">Scales</th>
-                    <th scope="col">Order</th>
-                    <th scope="col">Items</th>
-                    <th scope="col">Tax</th>
-                    <th>Shipping</th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let data of saclestotal">
-                    <td >{{data.sales}}</td>
-                    <td>{{data.order}}</td>
-                    <td>{{data.items}}</td>
-                    <td>{{data.tax}}</td>
-                    <td>{{data.shipping}}</td>
-                  </tr>
-                  
-                </tbody>
-              </table>
+<ng-container *ngIf="chartType === 'chart'">
+  <ng-template #chartsTemplate>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h2>Chart</h2>
+          <canvas id="barchart"></canvas>
         </div>
- 
-        <div class="col-4">
-            <select class="form-select" formControlName="type" id="type">
-                <option disabled>Select</option>
-                <option *ngFor="let permission of salesdata" [value]="permission">{{permission.type}}</option>
-              </select>
-            <h5>Scale data</h5>
-            <canvas id="salesBarChart" width="400" height="200"></canvas>
-            <canvas id="salesbarchart" width="400" height="200"></canvas>
+        <div class="col-lg-4">
+          <h2>Pie Chart</h2>
+          <canvas id="piechart"></canvas>
+        </div>
+        <div class="col-lg-4">
+          <h2>Doughnut Chart</h2>
+          <canvas id="doughnutchart"></canvas>
+        </div>
+        <div class="col-lg-4">
+          <h2>Polar Area Chart</h2>
+          <canvas id="polarAreachart"></canvas>
+        </div>
+        <div class="col-lg-4">
+          <h2>Line Chart</h2>
+          <canvas id="linechart"></canvas>
+        </div>
+        <div class="col-lg-4">
+          <h2>Scatter Chart</h2>
+          <canvas id="scatterchart"></canvas>
+        </div>
+      </div>
     </div>
-    
+  </ng-template>
+  <ng-container *ngTemplateOutlet="chartsTemplate"></ng-container>
+</ng-container>
 
-</div>
-</div>
+<ng-container *ngIf="chartType === 'sales'">
+  <ng-template #salesTemplate>
+    <div class="container">
+      <div class="row">
+        <h5>Scale Data</h5>
+        <div class="col-8">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Scales</th>
+                <th scope="col">Order</th>
+                <th scope="col">Items</th>
+                <th scope="col">Tax</th>
+                <th>Shipping</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of saclestotal">
+                <td>{{data.sales}}</td>
+                <td>{{data.order}}</td>
+                <td>{{data.items}}</td>
+                <td>{{data.tax}}</td>
+                <td>{{data.shipping}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-4">
+          <select class="form-select" formControlName="type" id="type">
+            <option disabled>Select</option>
+            <option *ngFor="let data of salesdata" [value]="data">{{data.salesdata}}</option>
+          </select>
+          <h5>Sales Data</h5>
+          <canvas id="salesBarChart" width="400" height="200"></canvas>
+          <canvas id="salesbarchart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-container *ngTemplateOutlet="salesTemplate"></ng-container>
+</ng-container>

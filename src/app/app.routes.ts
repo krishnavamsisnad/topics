@@ -4,8 +4,10 @@ import { MychartComponent } from './mychart/mychart.component';
 import { CardsComponent } from './cards/cards.component';
 
 export const routes: Routes = [
-    {path:'',component:MychartComponent},
+  
+  { path: 'charts', component: MychartComponent }, 
 
-    {path:'cards',component:CardsComponent}
+  
+    {path:'',component:CardsComponent}
 ]
   export class AppRoutingModule { }

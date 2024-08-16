@@ -1,0 +1,20 @@
+<ng-content select="[name]"></ng-content>
+<ng-content class=".last"></ng-content>
+
+<ng-template #templateA>
+    <p>This is Template A</p>
+  </ng-template>
+  
+  <ng-template #templateB>
+    <p>This is Template B</p>
+  </ng-template>
+  
+  <ng-container [ngTemplateOutlet]="isTemplateA ? templateA : templateB"></ng-container>
+  
+  <ng-container *ngIf="!name ;else notname ">
+
+    this is not vamsi
+  </ng-container>
+  <ng-template #notname>
+    this vamsi
+  </ng-template>

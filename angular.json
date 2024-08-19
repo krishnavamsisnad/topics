@@ -27,6 +27,7 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -57,7 +58,7 @@
               "extractLicenses": false,
               "sourceMap": true,
               "ssr": false, 
-              "prerender": false
+          "prerender": false
             }
           },
           "defaultConfiguration": "production"

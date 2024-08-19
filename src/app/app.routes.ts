@@ -10,4 +10,4 @@ export const routes: Routes = [
   
     {path:'',component:CardsComponent}
 ]
-  export class AppRoutingModule { }
+

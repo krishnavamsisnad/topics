@@ -21,6 +21,7 @@ constructor(public  fb:FormBuilder){}
 ngOnInit(): void {
   this.inilitionform()
 }
+
 inilitionform(){
 
  this.catageryform=this.fb.group({

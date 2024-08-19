@@ -1,0 +1,9 @@
+<div *ngFor="let p of proucts">
+<p>
+    {{p.title}}
+
+</p>
+<b>{{p.price}}</b>
+<a [routerLink]="['/cards', p.id]" class="btn btn-primary">Add to Card</a>
+
+</div>

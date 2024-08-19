@@ -11,7 +11,8 @@ export class HttpserivesService {
 
   constructor(public http : HttpClient,public route:ActivatedRoute) { }
   ApiUrl = environment.ApiUrl;
-  apikey=environment.apikey
+  apikey=environment.apikey;
+
 
   getWeather(city: string): Observable<any> {
     const params = new HttpParams()
@@ -61,5 +62,11 @@ export class HttpserivesService {
   
     return this.http.post<any>(`${this.ApiUrl}/weather/${city}`, data, { params });
   }
+  getAllproducts(){
+    return this.http.get("https://fakestoreapi.com/products")
+   }
+   getbyid(id:any){
+     return this.http.get(`https://fakestoreapi.com/products/`+id)
+   }
   
 }

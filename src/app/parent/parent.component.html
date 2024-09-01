@@ -1,2 +1,3 @@
-<p>parent works!</p>
-<app-child [counter]="counter"></app-child>
+<app-child [counter]="counter" (counterdata)="updatevalue($event)"></app-child>
+parent
+{{counter}}

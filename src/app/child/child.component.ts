@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -10,12 +10,16 @@ import { Component, Input, Output } from '@angular/core';
 })
 export class ChildComponent {
 @Input() counter:any
-@Output() data
+@Output() counterdata=new EventEmitter<any>()
 incre(){
 this.counter++
+this.counterdata.emit(this.counter)
+
 }
 desc(){
 this.counter--
+this.counterdata.emit(this.counter)
 }
+
 
 }

@@ -11,4 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ParentComponent {
 counter=0
+updatevalue(value:any){
+this.counter=value
+}
 }

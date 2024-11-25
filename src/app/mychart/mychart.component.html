@@ -60,15 +60,7 @@
             </tbody>
           </table>
         </div>
-        <div class="col-4">
-          <select class="form-select" formControlName="type" id="type">
-            <option disabled>Select</option>
-            <option *ngFor="let data of salesdata" [value]="data">{{data.salesdata}}</option>
-          </select>
-          <h5>Sales Data</h5>
-          <canvas id="salesBarChart" width="400" height="200"></canvas>
-          <canvas id="salesbarchart" width="400" height="200"></canvas>
-        </div>
+  
       </div>
     </div>
   </ng-template>
